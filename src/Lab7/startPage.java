@@ -12,7 +12,7 @@ public class startPage extends JFrame {
     private JPanel field;
 
 
-public startPage(){
+    public startPage(){
 
     this.setContentPane(field);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -23,8 +23,6 @@ public startPage(){
         @Override
         public void actionPerformed(ActionEvent e) {
             quizPage qP = new quizPage();
-            qP.show();
-
             dispose();
         }
     });
