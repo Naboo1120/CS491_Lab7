@@ -1,43 +1,119 @@
 package Lab7;
 
-
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Quiz {
+    public static void main(String[] args)throws IOException {
 
-    public static String calc() //accepts values passed to it from randy method
-    {
-        Random rand1 = new Random();
-        Random rand2 = new Random();
 
-        int m = rand1.nextInt(10)+1;
-        int n = rand1.nextInt(10)+1;
-        int c = rand2.nextInt(3);
+        //Declare the two number variables 
 
-        double answer = 0; //declares answer variable
+        int num1, num2, operator, question=0;
 
-        if (c == 0) //conditional checking if third random number generated is 0
+        int answer = 0;
+
+
+
+        Random generator = new Random();
+
+
+
+        //Declare Sentinel value
+
+        boolean quit = false;
+
+
+
+        while (quit == false)
+
         {
-            answer = m + n; //answer to upcoming problem
-            String addQ = "What is " + m + " + " + n + ": ";
-            return(addQ);
-        }
 
-        if (c == 1) //conditional if random number is 1
-        {
-            answer = m - n; //answer is stored in memory
-            String subQ = "What is " + m + " - " + n + ": "; //gives subtraction problem
-            return(subQ);
-        }
+            //Generate First Random Number
 
-        if (c == 2) //if random number is 2
-        {
-            answer = m * n; //answer stored in memory
-            String multiQ = "What is " + m + " x " + n + ": "; //multiplication problem
-            return(multiQ);
-        }
-        else
-            return null;
-    }
+            num1 = generator.nextInt(100);
 
-}
+            //Generate Second random Number
+
+            num2 = generator.nextInt(100);
+
+            //Generate the math Operator
+
+            operator = generator.nextInt(4);
+
+            //Switch replaces the IF statements 
+
+            switch (operator)
+
+            {
+
+                case 0: System.out.print(num1+"+"+num2+"= ");
+
+                    question = num1 + num2;
+
+                    break;
+
+                case 1: System.out.print(num1+"-"+num2+"= ");
+
+                    question = num1 - num2;
+
+                    break;
+
+                case 2: System.out.print(num1+"*"+num2+"= ");
+
+                    question = num1 * num2;
+
+                    break;
+
+                case 3: System.out.print(num1+"/"+num2+"= ");
+
+                    question = num1 / num2;
+
+                    break;
+
+                default:System.err.println("Application Error");
+
+                    System.exit(-1);
+
+                    break;
+
+            }
+
+
+
+            answer = Integer.parseInt(.readLine());
+
+
+
+            //Check which value is received, Sentinel, correct or incorrect
+
+            if (answer == -99)
+
+            {
+
+                System.out.print("Exit Program: Good Bye!\n");
+
+                quit = true;
+
+            }else if (answer == question)
+
+            {
+
+                System.out.print("Correct Answer!\n");
+
+
+
+            }else
+
+                System.out.print("Incorrect Answer\n");
+
+
+
+        }//while loop
+
+    }//main
+
+}//class

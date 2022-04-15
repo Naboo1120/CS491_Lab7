@@ -22,19 +22,9 @@ public class startPage extends JFrame {
     startQuizButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            quizPage qP = new quizPage();
             dispose();
         }
     });
 }
-
-
-
-    public static void main(String args[]){
-
-        JFrame frame = new startPage();
-        frame.setVisible(true);
-
-        }
 
 }
